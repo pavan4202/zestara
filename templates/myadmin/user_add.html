@@ -1,0 +1,47 @@
+{% extends 'myadmin/base.html' %}
+{% load static %}
+{% load thumbnail %}
+
+{% block content %}
+
+<div class="ui grid">
+    <div class="row">
+        <h3>User added</h3>
+    </div>
+    <div class="ui divider"></div>
+    <div class="row">
+        <div class="v-form-wrap">
+
+            <form class="ui form" novalidate method="post" action="{% url 'myadmin:user_add' %}"
+                  enctype="multipart/form-data" role="form">
+                {% csrf_token %}
+                <div class="field">
+                    <label>username</label>
+                    {{ form.username }}
+                </div>
+                <div class="field">
+                    <label>password</label>
+                    {{ form.password }}
+                </div>
+                <div class="field">
+                    <div class="ui checkbox">
+                      {{form.is_staff}}
+                      <label>Administrator account</label>
+                    </div>
+                </div>
+
+                <button class="ui primary button" type="submit">Add to</button>
+
+                {% include "base/form_errors.html" %}
+                {% include "base/form_messages.html" %}
+
+            </form>
+
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+

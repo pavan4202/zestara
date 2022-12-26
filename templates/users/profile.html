@@ -1,0 +1,92 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% block content %}
+
+
+<div class="v-settings">
+    <div class="ui two column grid ">
+        <div class="four wide column">
+            {% include "base/left_nav.html" %}
+        </div>
+        <div class="twelve wide column">
+            <div class="v-settings-content">
+
+                <form class="ui form" novalidate method="post" action="{% url 'users:profile' form.instance.pk %}"
+                      enctype="multipart/form-data" role="form">
+                    {% csrf_token %}
+                    <div class="sixteen wide inline field v-form-field">
+                        <label>Avatar</label>
+                        <div class="v-inline-middle">
+                            <label for="id_avatar">
+                                {% thumbnail user.avatar "200x200" crop="center" as im %}
+                                  <img class="ui circular image" src="{{ im.url }}">
+                                {% empty %}
+                                <img class="ui circular  image" src="{% static 'img/img_default_avatar.png' %}">
+                                {% endthumbnail %}
+                            </label>
+                            {{form.avatar}}
+                            <span id="file_is_choose" class="n">File selected</span>
+
+                        </div>
+                    </div>
+
+                    <div class="sixteen wide inline field v-form-field">
+                        <label style="color: white;">Nick name</label>
+                        {{form.nickname}}
+                    </div>
+
+                    <div class="sixteen wide inline field v-form-field">
+                        <label style="color: white;">Email</label>
+                        {{form.email}}
+                    </div>
+
+                    <div class="sixteen wide inline field v-form-field">
+                        <label style="color: white;">phone number</label>
+                        {{form.mobile}}
+                    </div>
+
+                    <div class="sixteen wide inline field v-form-field">
+                        <label style="color: white;">gender</label>
+                        <div class="ui selection  dropdown">
+                            {{form.gender}}
+                            <i class="dropdown icon"></i>
+                            <div class="default text">please choose</div>
+                            <div class="menu">
+                                <div class="item" data-value="M">Male</div>
+                                <div class="item" data-value="F">Female</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="ui primary button" type="submit">save</button>
+
+                    {% include "base/form_errors.html" %}
+                    {% include "base/form_messages.html" %}
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block javascript %}
+<script type="text/javascript">
+
+$(function(){
+
+    $('.ui .dropdown').dropdown();
+
+    $("#id_avatar").change(function(){
+        $("#file_is_choose").show()
+    });
+
+});
+
+</script>
+<script src="{% static 'js/left_nav.js' %}"></script>
+{% endblock javascript %}
+

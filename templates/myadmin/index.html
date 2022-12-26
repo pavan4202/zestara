@@ -1,0 +1,84 @@
+{% extends 'myadmin/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="ui grid">
+    <div class="row">
+        <h3>Overview</h3>
+    </div>
+    <div class="ui divider"></div>
+    <div class="row">
+
+        <div>
+
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+
+            <div class="ui tiny statistics">
+                <div class="statistic">
+                    <div class="value">{{ video_count }}</div>
+                    <div class="label">Number of videos</div>
+                </div>
+                <div class="statistic">
+                    <div class="value">{{ video_has_published_count }}</div>
+                    <div class="label">announcing</div>
+                </div>
+                <div class="statistic">
+                    <div class="value">{{ video_not_published_count }}</div>
+                    <div class="label">Unpublished</div>
+                </div>
+            </div>
+
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+
+            <div class="ui tiny statistics">
+                <div class="statistic">
+                    <div class="value">{{ user_count }}</div>
+                    <div class="label"> User number</div>
+                </div>
+                <div class="statistic">
+                    <div class="value">{{ user_today_count }}</div>
+                    <div class="label">Added today</div>
+                </div>
+            </div>
+
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+
+            <div class="ui tiny statistics">
+                <div class="statistic">
+                    <div class="value">{{ comment_count }}</div>
+                    <div class="label">Number of comments</div>
+                </div>
+                <div class="statistic">
+                    <div class="value">{{ comment_today_count }}</div>
+                    <div class="label">Added today</div>
+                </div>
+            </div>
+
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+            <h4>
+                {% if not user.is_superuser %}
+                {{user}} Permission: View data, search data. There is no right to edit and delete data.
+                <br/>After downloading the code, you can add a super user by yourself to use all functional permissions.
+                <br/>Adding method: python3 manage.py createsuperuser
+                <br/>If you have any questions, please consult the developer (weixin id: java2048)
+                {% endif %}
+            </h4>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}
+

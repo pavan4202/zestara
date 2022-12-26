@@ -1,0 +1,62 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/semantic.custom.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin.css' %}"/>
+    <title>Backstage management</title>
+</head>
+<body>
+<div class="ui inverted huge borderless fixed fluid menu">
+    <a class="header item" href="{% url 'myadmin:index' %}">
+        <img src="{% static 'img/logo.png' %}" id="logo">Backstage management
+    </a>
+    <div class="right menu">
+        <a class="item" href="{% url 'home' %}" target="_blank">Front Home</a>
+        <a class="item" href="{% url 'myadmin:index' %}">Background Home</a>
+        <a class="item">{{ user }}</a>
+        <a class="item" href="{% url 'myadmin:logout' %}">quit</a>
+    </div>
+</div>
+<div class="ui grid cotainer">
+    <div class="row">
+        <div class="column" id="sidebar">
+            <div class="ui secondary vertical fluid menu">
+                <a class="item" href="{% url 'myadmin:index' %}" id="index">Overview</a>
+                <div class="ui divider"></div>
+                <a class="item" href="{% url 'myadmin:video_list' %}" id="video_list">Video list</a>
+                <a class="item" href="{% url 'myadmin:video_add' %}" id="video_add">Add video</a>
+                <div class="ui divider"></div>
+                <a class="item" href="{% url 'myadmin:classification_list' %}" id="classification_list">Category List</a>
+                <a class="item" href="{% url 'myadmin:classification_add' %}" id="classification_add">add category</a>
+                <div class="ui divider"></div>
+                <a class="item" href="{% url 'myadmin:user_list' %}" id="user_list">user list</a>
+                <a class="item" href="{% url 'myadmin:user_add' %}" id="user_add">Add user</a>
+                <div class="ui divider"></div>
+                <a class="item" href="{% url 'myadmin:comment_list' %}" id="comment_list">comment list</a>
+                <div class="ui divider"></div>
+                <a class="item" href="{% url 'myadmin:subscribe'  %}" id="subscribe">Subscribe to notifications</a>
+                <a class="item" href="{% url 'myadmin:feedback_list'  %}" id="feedback_list">customer feedback</a>
+            </div>
+        </div>
+    </div>
+    <div class="column" id="content">
+        {% block content %}
+        {% endblock content %}
+    </div>
+</div>
+</div>
+
+{% block modal %}
+{% endblock modal %}
+<script src="https://cdn.staticfile.org/jquery/1.9.0/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/semantic-ui/2.4.1/semantic.min.js"></script>
+<script src="{% static 'js/myadmin/admin_nav.js' %}"></script>
+{% block javascript %}
+{% endblock javascript %}
+
+
+</body>
+</html>

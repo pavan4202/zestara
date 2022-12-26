@@ -1,0 +1,127 @@
+{% load static %}
+{% load thumbnail %}
+
+<!-- <div class="ui sticky-fixed-menu">
+    <div class="ui container">
+        <a href="/" class="borderless header item">
+            <img class="logo" src="{% static 'img/logo.png' %}">
+            <h2 class="home-button">Zestara</h2>
+        </a>
+        <div class="v-header-extra">
+            <div class="ui small icon input v-video-search">
+                <input class="prompt" value="{{ q }}" type="text" placeholder="Search" id="v-search">
+                <i id="search" class="search icon" style="cursor:pointer;"></i>
+            </div>
+
+            {% if user.is_authenticated %}
+            <div class="ui inline dropdown" id="v-header-avatar" style="">
+                <div class="" style="display:inline-block;font-weight:bold;">
+                    {% thumbnail user.avatar "50x50" crop="center" as im %}
+                    <img class="ui avatar image img-circle" src="{{ im.url }}">
+                    {% empty %}
+                    <img class="ui avatar image img-circle" src="{% static 'img/img_default_avatar.png' %}">
+                    {% endthumbnail %}
+                    {{ user.username }}
+                </div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <div class="item" onclick="window.location='{% url 'users:profile' user.pk %}';">
+                        <i class="user icon"></i>
+                        <span>Profile</span>
+                    </div>
+                    <div class="item" onclick="window.location='{% url 'users:collect_videos' user.pk %}';">
+                        <i class="bookmark icon"></i>
+                        <span>My Playlist</span>
+                    </div>
+                    <div class="item" onclick="window.location='{% url 'users:like_videos' user.pk %}';">
+                        <i class="heart icon"></i>
+                        <span>Liked videos</span>
+                    </div>
+                    <div class="item" onclick="window.location='{% url 'users:logout' %}';">
+                        <i class="sign-out icon"></i>
+                        <span>Log out</span>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <a class="ui tiny secondary basic button" id="v-header-login" href="{% url 'users:login' %}?next={{ request.path }}">Log in</a>
+            {% endif %}
+
+        </div>
+    </div>
+</div> -->
+
+<!-- this is my own way of coding this page -->
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Zestara</a>
+      <form class="navbar-form navbar-left topnav-centered" action=" /video/search/ " method="post" >
+        {% csrf_token %}
+          <div class="form-group">
+            <input type="text" class="form-control"  placeholder="Search" name="search">
+            <button type="submit" class="btn btn-default" >Submit</button>
+          </div>
+      </form>
+      <a href="/myadmin/"><button class="btn btn-danger navbar-btn" style="padding: 0px margin: 0px;">Stream</button></a>
+    </div>
+    
+        
+    
+    
+
+        
+
+    <ul class="nav navbar-nav navbar-right">
+      
+      {% if user.is_authenticated %}
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Avatar <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'users:profile' user.pk %}">Profile</a></li>
+          <li><a href="{% url 'users:collect_videos' user.pk %}">Playlist</a></li>
+          <li><a href="{% url 'users:logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
+      </li>
+
+
+
+            <div class="ui inline dropdown" id="v-header-avatar" style="">
+                <div class="" style="display:inline-block;font-weight:bold;">
+                    {% thumbnail user.avatar "50x50" crop="center" as im %}
+                    <img class="ui avatar image img-circle" src="{{ im.url }}">
+                    {% empty %}
+                    <img class="ui avatar image img-circle" src="{% static 'img/img_default_avatar.png' %}">
+                    {% endthumbnail %}
+                    {{ user.username }}
+                </div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <div class="item" onclick="window.location='{% url 'users:profile' user.pk %}';">
+                        <i class="user icon"></i>
+                        <span>Profile</span>
+                    </div>
+                    <div class="item" onclick="window.location='{% url 'users:collect_videos' user.pk %}';">
+                        <i class="bookmark icon"></i>
+                        <span>My Playlist</span>
+                    </div>
+                    <div class="item" onclick="window.location='{% url 'users:like_videos' user.pk %}';">
+                        <i class="heart icon"></i>
+                        <span>Liked videos</span>
+                    </div>
+                    <div class="item" onclick="window.location='{% url 'users:logout' %}';">
+                        <i class="sign-out icon"></i>
+                        <span>Log out</span>
+                    </div>
+                </div>
+            </div>
+      {% else %}
+          <li><a  href="{% url 'users:signup' %}?next={{ request.path }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="{% url 'users:login' %}?next={{ request.path }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        
+      {% endif %}
+
+            
+    </ul>
+  </div>
+</nav>

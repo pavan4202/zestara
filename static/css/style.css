@@ -1,0 +1,331 @@
+
+
+body {
+  margin: 0px;
+  background-color: #202121;
+  color: white;
+
+}
+
+.home-button {
+    color: black;
+}
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 24px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add an active class to highlight the current page */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* videoproject css */
+
+
+
+.color-black{
+    color:#000000;
+}
+
+.cursor{
+    cursor: pointer;
+}
+
+.n{
+    display:none;
+}
+
+.fl{
+    float:left;
+}
+.fr{
+    float:right;
+}
+
+.v-inline-middle{
+    display:inline-block;
+    vertical-align: middle;
+}
+
+#v-content{
+    
+    background-color: #202121;
+    margin: 0px;
+    color: white;
+    padding: 0px;
+    width: 100%;
+}
+
+#v-account-body{
+    background-color: #DADADA;
+}
+#v-account-body > .grid{
+    height: 100%;
+}
+
+.ui .menu .item img.logo {
+    margin-right: 0.66rem;
+    width: 50px;
+    color: white;
+    
+
+}
+
+
+
+.ui.footer.segment {
+    margin: 2em 0em 0em;
+    padding: 1em 0em;
+    text-decoration-color: white;
+}
+
+.v-account  {
+  max-width: 450px;
+}
+
+.video{ 
+      width: 100%;
+      height: auto; 
+}
+
+.v-video-search{ 
+    margin-right: 3em;
+    width: 30%;
+    text-align: center;
+}
+
+.v-video-search i{
+    cursor: pointer;
+}
+
+.v-container-top{
+    height: 5.66em;
+}
+
+.v-header-extra{  
+    position: relative; 
+    width:100%;
+    text-align: right;    
+    padding-top: 0.60rem;
+}  
+ 
+.v-play-icon{
+    position: absolute; 
+    left: 1.0rem;
+    bottom: 1.0rem;
+    color: #fff;
+}
+
+.ui .card .image{
+    cursor: pointer;
+    
+
+}
+ 
+
+.v-icon{
+    float: left;
+}
+ 
+.video-duration{
+  position: absolute; 
+  bottom: 0px;
+    left: 4px; 
+    color: #fff;
+}
+
+.header-title{
+  margin-top: 30px;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.28571429em;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.video-title{
+    
+    font-size: 1.28em;
+    font-weight: 400;
+    line-height: 1em;
+    -ms-flex: 1 1 0.000000001px;
+    -webkit-flex: 1;
+    flex: 1; 
+    font-weight: bold;
+    color: white;
+
+}
+
+.video-title a{
+    color: white;
+}
+
+.video-title a:hover{
+      text-decoration: none;
+      color: whitesmoke;
+}
+
+.video-side-title{
+    color: var(--yt-primary-text-color);
+    font-size: 1.28em;
+    font-weight: 400;
+    line-height: 1em;
+    -ms-flex: 1 1 0.000000001px;
+    -webkit-flex: 1;
+    flex: 1; 
+}
+
+.video-view-count{
+    margin-top: 16px;
+    color: whtie;
+    color: var(--yt-primary-text-color);
+}
+
+.video-view-operation{
+    margin-top: 16px;
+    color: #888888;
+}
+
+.video-info{
+    margin-top: 20px;
+}
+
+.video-page{
+    display: block;
+    margin:1.28em;
+    text-align: center;
+}
+
+.v-settings{
+    margin-top: 40px;
+}
+
+.v-settings-side{
+    border-right: 1px solid #e3e3e3;
+}
+
+.v-settings-content .form{
+    margin:0em auto;
+    width: 400px;
+}
+
+.v-settings-nav{
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 185px;
+    min-height: 350px;
+    margin-right: 100px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.v-settings-avatar{
+    display:inline-block;
+    float:left;
+    cursor:pointer;
+}
+
+.v-nav-title{
+    margin-left:1.0em;
+    color: white;
+
+}
+
+.v-form-field{
+    padding-top:1em;
+    padding-bottom:1em;
+    vertical-align:middle;
+}
+
+.v-form-fix-avatar{
+    padding:2em;
+}
+
+.v-header-avatar{
+line-height:34px;
+color:#000;
+}
+
+.sticky-fixed-menu{
+    display: grid;
+}
+
+a{
+    color: black;
+}
+
+#comment-label{
+    color: white;
+}
+
+.meta > .video-view-count{
+    color: white;
+}
+
+.meta {
+    text-decoration-color: white;
+}
+
+.brand{
+    color: indianred;
+}
+
+
+.item{
+    color: white;
+}
+
+.container{
+    display: grid;
+}
+
+
+.classification{
+    justify-self: center;
+}
+
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

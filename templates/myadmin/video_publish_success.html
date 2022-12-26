@@ -1,0 +1,23 @@
+{% extends 'myadmin/base.html' %}
+{% load static %}
+{% load thumbnail %}
+
+{% block content %}
+
+<div class="ui grid">
+    <div class="row">
+        <h3>Video material</h3>
+    </div>
+    <div class="ui divider"></div>
+    <div class="row">
+        <div class="v-form-wrap">
+
+            <h3>Posted successfully! </h3>
+            <h3><a href="{% url 'myadmin:video_list' %}">&lt;&lt;Return to list</a></h3>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

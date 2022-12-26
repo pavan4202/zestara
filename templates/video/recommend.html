@@ -1,0 +1,38 @@
+{% load thumbnail %}
+{% load static %}
+{% load video_tag %}
+<div class="container-fluid">
+    
+            <span class="video-side-title">Recommendation list</span>
+
+            <div class="ui unstackable divided items">
+                {% for item in recommend_list %}
+                <a class="item" href="{% url 'video:detail' item.pk %}">
+                    <div class="ui tiny image">
+                        <!-- <a class="image"href="{% url 'video:detail' item.pk %}"> -->
+                            {% thumbnail item.cover "1280x720" crop="center" as im %}
+                            <img class="ui image" src="{{ im.url }}">
+                            {% empty %}
+                            {% endthumbnail %}
+                        <!-- </a> -->
+                        <div class="content">
+                            <div class="video-title"> <!--  href="{% url 'video:detail' item.pk %}">  -->
+                                {{ item.title }} 
+                                <div class="meta">
+                                    <div class="video-view-count">
+                                        {{ item.view_count}} Views
+                                    </div>
+                                    <span class="date" style="color: white;">{{ item.create_time|time_since }}</span>
+                                </div>
+                              </div> 
+                        </div>
+                    </div>
+                </a>
+            </div>
+        
+    {% empty %}
+    <h3>No recommendations at the moment</h3>
+    {% endfor %}
+
+</div>
+

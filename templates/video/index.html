@@ -1,0 +1,79 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% load video_tag %}
+
+{% block content %}
+
+<div class="classification">
+    <a class="ui {% if c %}{% else %}red{% endif %} label" href="{% url 'home' %}">All</a>
+    {% for item in classification_list %}
+    <a class="ui {% if c == item.id|stringformat:'s' %}red{% endif %} label" href="?c={{ item.id }}">{{ item.title }}</a>
+    {% endfor %}
+</div>
+
+<!--
+<div class="ui container">
+<div class="ui flex">
+    {% for item in video_list %}
+    <div class="four-wide-column">
+        <div class="ui flex col-3">
+            <a class="image" href="{% url 'video:detail' item.pk %}">
+                {% thumbnail item.cover "300x200" crop="center" as im %}
+                <img class="ui image" src="{{ im.url }}">
+                {% empty %}
+                {% endthumbnail %}
+                
+            
+                <div class="content">
+                    <a class="video-title" href="{% url 'video:detail' item.pk %}">{{ item.title }} </a>
+                    <div class="meta">
+                        <div class="view_count">
+                        {{ item.view_count}} Views
+                        </div>
+                        <span class="date"> {{ item.create_time|time_since }}</span>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+    </div>
+    {% empty %}
+    <h3>No data</h3>
+    {% endfor %}
+</div>
+</div>
+-->
+
+<div class="container-fluid" style="margin-left: 0px; margin-right: 0px;">
+    <div class="row">
+        {% for item in video_list %}
+            
+        <div class="col-md-3 col-sm-4 col-lg-3">
+            <a class="image" href="{% url 'video:detail' item.pk %}">
+                {% thumbnail item.cover "1280x720" crop="center" as im %}
+                <img class="ui image" src="{{ im.url }}">
+                    {% empty %}
+                    {% endthumbnail %}
+             
+            
+            <div class="video-title">{{ item.title|truncatechars:40 }}</div>
+            
+            <div class="meta" style="color: white;">
+                <div class="view_count">
+                    {{ item.view_count}} Views
+                </div>
+                <span class="date"> {{ item.create_time|time_since }}</span>
+            </div>
+            </a>
+        </div>
+        <br> <!-- br to give some gap after a thumbnail(video details) -->
+        {% empty %}
+    <h3>No data</h3>
+        {% endfor %}
+    </div>
+    
+    
+</div>
+
+{% endblock content %}
